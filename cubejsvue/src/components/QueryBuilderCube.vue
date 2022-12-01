@@ -1,7 +1,7 @@
 <template>
   <query-builder :cubejs-api="cubejsApi" :query="query">
     <template #builder="{ measures, setMeasures, availableMeasures }">
-      <multiselect placeholder="Please Select" label="Title" track-by="name" multiple :customLabel="customLabel"
+      <multiselect placeholder="Please Select" label="Title" track-by="name" multiple :customLabel="customLabel" mode="multiple"
         :value="measures" :options="availableMeasures" @input="(...args) => set(setMeasures, ...args)" />
     </template>
 
@@ -15,7 +15,8 @@
 
 <script>
 import cubejs from "@cubejs-client/core";
-import Multiselect from "vue-multiselect";
+//import Multiselect from "@suadelabs/vue3-multiselect";
+import Multiselect from "@vueform/multiselect";
 import { QueryBuilder } from "@cubejs-client/vue3";
 import ChartRenderer from "./ChartRenderer.vue";
 
@@ -46,7 +47,7 @@ export default {
 
     return {
       cubejsApi,
-      selected: undefined,
+      selected: [],
       query,
     };
   },
@@ -60,7 +61,7 @@ export default {
   },
 };
 </script>
-<style src="vue-multiselect/dist/vue-multiselect.min.css">
+<style src="@vueform/multiselect/themes/default.css">
 
 </style>
 
