@@ -1,15 +1,15 @@
 <template>
   <query-builder :cubejs-api="cubejsApi" :query="query">
     <template #builder="{ measures, setMeasures, availableMeasures }">
-      <multiselect placeholder="Please Select" label="Title" track-by="name" multiple :customLabel="customLabel" mode="multiple"
-        :value="measures" :options="availableMeasures" @input="(...args) => set(setMeasures, ...args)" />
+      <Multiselect placeholder="Please Select" label="Title" track-by="name" multiple :customLabel="customLabel" mode="tags"
+        v-model="value" :value="measures" :options="availableMeasures" @input="(...args) => set(setMeasures, ...args)" />
     </template>
 
     <template #default="{ resultSet }">
       <chart-renderer v-if="resultSet" :result-set="resultSet" />
     </template>
 
-    <template #empty>Loading...</template>
+<template #empty>Loading...</template>
   </query-builder>
 </template>
 
@@ -35,8 +35,9 @@ export default {
     ChartRenderer,
   },
   data() {
+    
     const query = {
-      measures: [],
+      measures: ["LineItems.count"],
       timeDimensions: [
         {
           dimension: "LineItems.createdAt",
@@ -46,6 +47,7 @@ export default {
     };
 
     return {
+      value:[],
       cubejsApi,
       selected: [],
       query,
@@ -56,6 +58,7 @@ export default {
       return a.title;
     },
     set(setMeasures, value) {
+      console.log(setMeasures, value);
       setMeasures(value.map((e) => e.name));
     },
   },
