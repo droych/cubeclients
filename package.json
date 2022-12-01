@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@cubejs-client/core": "^0.31.15",
-    "@cubejs-client/vue": "^0.31.19"
-  }
-}

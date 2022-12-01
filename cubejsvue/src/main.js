@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import VueChartkick from "vue-chartkick";
-import Chart from "chart.js";
-
+import { Chart,registerables  } from "chart.js";
+import 'chartjs-adapter-moment';
 import App from "./App.vue";
 import router from "./router";
 
@@ -12,6 +12,7 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
-app.use.config.productionTip = false;
-app.use.use(VueChartkick, { adapter: Chart });
+app.config.productionTip = false;
+Chart.register(...registerables);
+app.use(VueChartkick, { adapter: Chart });
 app.mount("#app");
