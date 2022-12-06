@@ -1,15 +1,25 @@
 <template>
   <query-builder :cubejs-api="cubejsApi" :query="query">
     <template #builder="{ measures, setMeasures, availableMeasures }">
-      <Multiselect placeholder="Please Select" label="Title" track-by="name" multiple :customLabel="customLabel" mode="tags"
-        v-model="value" :value="measures" :options="availableMeasures" @input="(...args) => set(setMeasures, ...args)" />
+      <Multiselect
+        placeholder="Please Select"
+        label="Title"
+        track-by="name"
+        multiple
+        :customLabel="customLabel"
+        mode="tags"
+        v-model="value"
+        :value="measures"
+        :options="availableMeasures"
+        @input="(...args) => set(setMeasures, ...args)"
+      />
     </template>
 
     <template #default="{ resultSet }">
       <chart-renderer v-if="resultSet" :result-set="resultSet" />
     </template>
 
-<template #empty>Loading...</template>
+    <template #empty>Loading...</template>
   </query-builder>
 </template>
 
@@ -20,8 +30,7 @@ import Multiselect from "@vueform/multiselect";
 import { QueryBuilder } from "@cubejs-client/vue3";
 import ChartRenderer from "./ChartRenderer.vue";
 
-const API_URL =
-  "https://awesome-ecom.gcp-us-central1.cubecloudapp.dev/cubejs-api/v1";
+const API_URL = "http://ec2-18-221-237-147.us-east-2.compute.amazonaws.com/cubejs-api/v1";
 const CUBEJS_TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTQ2NjY4OTR9.0fdi5cuDZ2t3OSrPOMoc3B1_pwhnWj4ZmM3FHEX7Aus";
 
@@ -35,19 +44,18 @@ export default {
     ChartRenderer,
   },
   data() {
-    
     const query = {
-      measures: ["LineItems.count"],
+      measures: ["Towns.count"],
       timeDimensions: [
         {
-          dimension: "LineItems.createdAt",
+          dimension: "Towns.createdAt",
           granularity: "month",
         },
       ],
     };
 
     return {
-      value:[],
+      value: [],
       cubejsApi,
       selected: [],
       query,
@@ -55,7 +63,7 @@ export default {
   },
   methods: {
     customLabel(a) {
-      return a.title;
+      return a.name;
     },
     set(setMeasures, value) {
       console.log(setMeasures, value);
@@ -64,9 +72,7 @@ export default {
   },
 };
 </script>
-<style src="@vueform/multiselect/themes/default.css">
-
-</style>
+<style src="@vueform/multiselect/themes/default.css"></style>
 
 <style scoped>
 h3 {

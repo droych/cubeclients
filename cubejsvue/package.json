@@ -16,10 +16,12 @@
     "@vueform/multiselect": "^2.5.7",
     "chart.js": "^4.0.1",
     "chartjs-adapter-moment": "^1.0.1",
+    "echarts": "^5.4.0",
     "moment": "^2.29.4",
     "pinia": "^2.0.26",
     "vue": "^3.2.45",
     "vue-chartkick": "^1.1.0",
+    "vue-echarts": "^6.2.3",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
