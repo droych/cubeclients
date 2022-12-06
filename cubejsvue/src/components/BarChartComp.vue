@@ -1,5 +1,6 @@
 <template>
   <div class="charts-wrapper">
+    <div>Kuch bhi dcdcdccdddddddddddddddddddddddddddddddddddddddddddddddddddcdcdc cdcdcd dcdcdc dccdcdccdcdc cdcdcd cdcdlwsjlw</div>
     <v-chart class="chart" :option="option" />
   </div>
 </template>
@@ -16,6 +17,7 @@ import {
 } from "echarts/components";
 import VChart, { THEME_KEY } from "vue-echarts";
 import { ref } from "vue";
+import * as moment from 'moment';
 
 use([
   CanvasRenderer,
@@ -39,22 +41,19 @@ export default {
     [THEME_KEY]: "light",
   },
   setup(props) {
-    const headers = props.resultSet.rawData().map((item) => Object.values(item)[0]);
-
+    const headers = props.resultSet.rawData().map((item) => moment(Object.values(item)[0]).format("MMM YY"));
     const data = props.resultSet.rawData().map((item) => {
       const currentItem = Object.values(item);
-      return currentItem[1];
+      return parseInt(currentItem[2]);
     });
+
 
     const option = ref({
       title: {
         text: "Towns Count",
         left: "center",
       },
-      tooltip: {
-        trigger: "item",
-        formatter: "{a} <br/>{b} : {c} ({d}%)",
-      },
+
       xAxis: {
         type: "category",
         data: headers,
@@ -89,5 +88,6 @@ export default {
 <style scoped>
 .chart {
   height: 400px;
+  width: auto;
 }
 </style>
