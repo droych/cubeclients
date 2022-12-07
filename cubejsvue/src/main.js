@@ -5,6 +5,7 @@ import { Chart,registerables  } from "chart.js";
 import 'chartjs-adapter-moment';
 import App from "./App.vue";
 import router from "./router";
+import "echarts";
 
 import "./assets/main.css";
 
