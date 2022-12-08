@@ -1,5 +1,9 @@
 <template>
-  <v-chart class="chart" :option="option" />
+  <div class="charts-wrapper">
+    <div class="chart">
+      <v-chart class="chart" :option="option" />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -85,6 +89,6 @@ export default {
 <style scoped>
 .chart {
   height: 400px;
-  width: auto;
+  width: 680px;
 }
 </style>
