@@ -1,11 +1,5 @@
 <template>
-  <div class="charts-wrapper">
-    <div class="chart">
-      ..............................................................................................................
-
-      <v-chart class="chart" :option="option" />
-    </div>
-  </div>
+  <v-chart class="chart" :option="option" />
 </template>
 
 <script>
@@ -19,8 +13,6 @@ import {
   TitleComponent,
 } from "echarts/components";
 import VChart, { THEME_KEY } from "vue-echarts";
-import { ref } from "vue";
-import * as moment from "moment";
 
 use([
   CanvasRenderer,
@@ -30,7 +22,8 @@ use([
   TooltipComponent,
   LegendComponent,
 ]);
-
+import { ref } from "vue";
+import * as moment from "moment";
 export default {
   name: "BarChartComp",
   components: {
