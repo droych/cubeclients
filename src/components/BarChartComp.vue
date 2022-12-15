@@ -27,6 +27,7 @@ use([
   LegendComponent,
 ]);
 import { ref } from "vue";
+
 import * as moment from "moment";
 export default {
   name: "BarChartComp",
@@ -87,6 +88,9 @@ export default {
 };
 </script>
 <style scoped>
+.chart-wapper {
+  display: flex;
+}
 .chart {
   height: 400px;
   width: 680px;

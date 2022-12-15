@@ -14,14 +14,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import cubejs from "@cubejs-client/core";
 import { QueryBuilder } from "@cubejs-client/vue3";
 import BarChartComp from "../components/BarChartComp.vue";
 const cubejsApi = cubejs(
   "1bea38a48b6e92af20a7026bdb29893ce6fadb1d76edad085121f326acb7ccf0c5077ff7242af7cf8f7afc0ba5420bcb464e384c4721aeb94d54e05ed1975f30",
   {
-    apiUrl: "http://ec2-18-221-237-147.us-east-2.compute.amazonaws.com/cubejs-api/v1",
+    apiUrl: `http://ec2-18-221-237-147.us-east-2.compute.amazonaws.com/cubejs-api/v1`,
   }
 );
 
@@ -51,6 +51,8 @@ export default {
   },
 };
 </script>
+
+
 
 <style>
 #app {
