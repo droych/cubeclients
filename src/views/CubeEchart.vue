@@ -6,6 +6,7 @@ import EchartMongo from "../components/EchartMongo.vue";
   <div>
     <main>
       <!-- <EchartQueryBuilder />-->
+
       <EchartMongo />
     </main>
   </div>
