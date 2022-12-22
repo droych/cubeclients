@@ -1,10 +1,12 @@
 <script setup>
 import EchartQueryBuilder from "../components/EchartQueryBuilder.vue";
+import EchartMongo from "../components/EchartMongo.vue";
 </script>
 <template>
   <div>
     <main>
-      <EchartQueryBuilder />
+      <!-- <EchartQueryBuilder />-->
+      <EchartMongo />
     </main>
   </div>
 </template>
