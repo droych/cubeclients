@@ -47,12 +47,13 @@ export default {
       .map((item) => moment(Object.values(item)[0]).format("MMM YY"));
     const data = props.resultSet.rawData().map((item) => {
       const currentItem = Object.values(item);
+      console.log(currentItem);
       return parseInt(currentItem[2]);
     });
 
     const option = ref({
       title: {
-        text: "Towns Count",
+        text: "Events Count",
         left: "center",
       },
 
